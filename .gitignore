@@ -1,0 +1,8 @@
+# .gitignore
+
+# Archivos y carpetas generadas por Node.js
+node_modules/
+dist/
+
+# Archivos de configuración
+variables.env
