@@ -6,3 +6,4 @@ dist/
 
 # Archivos de configuración
 variables.env
+.vercel

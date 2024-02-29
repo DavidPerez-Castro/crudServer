@@ -13,6 +13,8 @@ app.use(express.json());
 
 app.use('/api/tattoos', require('./routes/tattoo'));
 
-app.listen(4000, () => {
-    console.log('El servidor se esta ejecutando perfectamente')
-});
+const PORT = process.env.PORT
+
+app.listen(PORT, () => {
+    console.log('El servidor se esta ejecutando perfectamente' + PORT)
+})
