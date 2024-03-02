@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const tattooController = require('../controllers/tattooController');
 
+// Ruta para buscar tatuajes por nombre
+router.get('/search', tattooController.searchTattoos);
+
 // Ruta para agregar un nuevo tatuaje
 router.post('/', tattooController.addTattoo);
 

@@ -16,5 +16,5 @@ app.use('/api/tattoos', require('./routes/tattoo'));
 const PORT = process.env.PORT
 
 app.listen(PORT, () => {
-    console.log('El servidor se esta ejecutando perfectamente' + PORT)
+    console.log('El servidor se esta ejecutando perfectamente', + PORT)
 })

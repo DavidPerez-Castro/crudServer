@@ -90,3 +90,15 @@ exports.deleteTattoo = async (req, res) => {
         res.status(500).send('Hubo un error');
     }
 }
+
+exports.searchTattoos = async (req, res) => {
+    try {
+        const query = req.query.query; // Obtener el parámetro de búsqueda desde la URL
+        const tattoos = await Tattoo.find({ title: { $regex: query, $options: 'i' } }); // Realizar la búsqueda insensible a mayúsculas y minúsculas
+
+        res.json(tattoos);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error en la búsqueda de tatuajes');
+    }
+}
