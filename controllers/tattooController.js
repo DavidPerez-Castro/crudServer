@@ -34,7 +34,7 @@ exports.getAllTattoos = async (req, res) => {
 exports.updateTattoo = async (req, res) => {
 
     try {
-        const { title, description, price, details, imageUrl } = req.body;
+        const { title, description, price, details, size, color, style, bodyPart, imageUrl } = req.body;
         let tattoo = await Tattoo.findById(req.params.id);
 
         if(!tattoo) {
@@ -45,6 +45,10 @@ exports.updateTattoo = async (req, res) => {
         tattoo.description = description;
         tattoo.price = price;
         tattoo.details = details;
+        tattoo.size = size;
+        tattoo.color = color;
+        tattoo.style = style;
+        tattoo.bodyPart = bodyPart;
         tattoo.imageUrl = imageUrl;
 
         tattoo = await Tattoo.findOneAndUpdate({ _id: req.params.id },tattoo, { new: true} )
