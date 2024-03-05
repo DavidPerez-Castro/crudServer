@@ -80,20 +80,22 @@ exports.getTattooById = async (req, res) => {
 
 exports.deleteTattoo = async (req, res) => {
     try {
+        console.log("Deleting tattoo with ID: ", req.params.id); // Agrega esta línea
         let tattoo = await Tattoo.findById(req.params.id);
 
-    if (!tattoo) {
+        if (!tattoo) {
+        console.log("Tattoo not found with ID: ", req.params.id); // Agrega esta línea
         return res.status(404).json({ msg: 'No existe el tatuaje' });
     }
 
-    await Tattoo.findByIdAndDelete(req.params.id);
-    res.json({ msg: 'Tatuaje eliminado con éxito' });
-
+        await Tattoo.findByIdAndDelete(req.params.id);
+        console.log("Tattoo deleted with ID: ", req.params.id); // Agrega esta línea
+        res.json({ msg: 'Tatuaje eliminado con éxito' });
     } catch (error) {
         console.log(error);
         res.status(500).send('Hubo un error');
     }
-}
+};
 
 exports.searchTattoos = async (req, res) => {
     try {
